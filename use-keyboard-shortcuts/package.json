@@ -1,11 +1,11 @@
 {
   "name": "use-keyboard-shortcuts",
   "version": "1.0.1",
-  "description": "A starter for creating a new React hook",
+  "description": "Single hook for all your keyboard shortcuts",
   "author": {
     "name": "Tony Faieta",
-    "email": "hello@colbyfayock.com",
-    "url": "https://twitter.com/colbyfayock"
+    "email": "tfaieta@gmail.com",
+    "url": "https://twitter.com/tfaieta"
   },
   "keywords": [
     "react",
@@ -30,9 +30,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/colbyfayock/use-keyboard-shortcuts"
+    "url": "https://github.com/tfaieta/use-keyboard-shortcuts"
   },
   "bugs": {
-    "url": "https://github.com/colbyfayock/use-keyboard-shortcuts/issues"
+    "url": "https://github.com/tfaieta/use-keyboard-shortcuts/issues"
+  },
+  "dependencies": {
+    "keycode": "^2.2.0"
   }
 }

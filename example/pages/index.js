@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useKeyboardShortcuts } from '../../use-keyboard-shortcuts';
 
 import { toCamel } from '../lib/util';
@@ -6,6 +7,8 @@ import hookConfig from '../../use-keyboard-shortcuts/package.json';
 
 export default function Index() {
   const { name, description, repository = {}, author = {} } = hookConfig;
+  const [message, setMessage] = useState();
+  
 
   const { name: authorName, url: authorUrl } = author;
 
@@ -14,11 +17,15 @@ export default function Index() {
 
   const repositoryUrlDisplay = repositoryExists && repositoryUrl.split('://')[1];
 
-  const hookSettings = {
-    message: 'Hello, custom hook!'
-  }
-
-  const { message } = useKeyboardShortcuts(hookSettings);
+  useKeyboardShortcuts({
+    'a': () => setMessage('pressed a'),
+    'b': () => setMessage('pressed b'),
+    'c': () => setMessage('pressed c'),
+    'd': () => setMessage('pressed d'),
+    'e': () => setMessage('pressed e'),
+    'backspace': () => setMessage('pressed backspace'),
+    'shift, z': () => setMessage('pressed shift and z'),
+  });
 
   return (
     <main>
@@ -85,22 +92,39 @@ export default function Index() {
         <h2>How to use</h2>
 
         <p>
-          Add your instructions here!
+          `useKeyboardShortcuts` takes in an object where each key is the key that you'd like pressed and the value being the function you'd like to fire
+          on press of that key. It handles more than one key if you seperate values with a comma. It all happens on mount so no need to mess up your render statement 
+          with functions or truthy checks. 
         </p>
 
         <h2>Examples</h2>
 
-        <h3>Set and grab message</h3>
         <p>
           <strong>Input:</strong>
         </p>
         <pre>
           <code>
-{`const hookSettings = {
-  message: 'Hello, custom hook!'
-}
+{`  
+  import React, { useState } from "react" 
+  const [message, setMessage] = useState();
+  
+  const Example = () => {
 
-const { message } = useKeyboardShortcuts(hookSettings);`}
+    useKeyboardShortcuts({
+      'a': () => setMessage('pressed a'),
+      'b': () => setMessage('pressed b'),
+      'c': () => setMessage('pressed c'),
+      'd': () => setMessage('pressed d'),
+      'e': () => setMessage('pressed e'),
+      'backspace': () => setMessage('pressed backspace'),
+      'shift, z': () => setMessage('pressed shift and z'),
+    });
+    
+    return (
+      <p>{message}</p>
+    )
+  }
+  `}
           </code>
         </pre>
         <p>
