@@ -3,8 +3,11 @@ One hook for all your keyboard shortcuts
 
 useKeyboardShortcuts` takes in an object where each key is the key that you'd like pressed and the value being the function you'd like to fire on press of that key. It handles more than one key if you seperate values with a comma. It all happens on mount so no need to mess up your render statement with functions or truthy checks. 
 
-API: 
-`useKeyboardShortcuts(keys: Object)`
+
+Usage:
+1. Install `npm install use-keyboard-shortcuts-js`
+
+2. See reference: `useKeyboardShortcuts(keys: Object)`
 
 ```
     useKeyboardShortcuts({

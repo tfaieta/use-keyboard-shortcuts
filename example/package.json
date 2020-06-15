@@ -18,7 +18,8 @@
   "dependencies": {
     "next": "^9.3.4",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "use-keyboard-shortcuts-js": "^1.0.1"
   },
   "private": true
 }
